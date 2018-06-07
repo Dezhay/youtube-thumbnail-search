@@ -16,27 +16,51 @@ function getApiData(searchTerm, callback) {
 		$.ajax(settings);
 		console.log('getApiData ran');
 
-	console.log(settings.data);
+	//console.log(settings.data);
+
+	/*jsonVar = $.ajax();
+	document.write(jsonVar);*/
 }
+
+
 
 
 function renderResults(result) {
-	let resultsFromApi = `
+	/*let resultsFromApi = `
 	<div>
       <h2>
       <p>Okay, Here's what we got: 
-      	<span class="js-search-data">${result.items.snippet.items}</span>
+      	<span class="js-search-data">${result.title}</span>
       </p>      
     </div>
 	`;
-	$('.js-search-results').html(resultsFromApi);
+	$('.js-search-results').html(resultsFromApi);*/
+
+
+	return `
+	<div>
+      	<h2>
+      		<p> 
+      		<a  target="_blank" href="https://www.youtube.com/watch?v=${result.id.videoId}">
+      		<span class="js-search-data">${result.snippet.title}</span>
+      		<img src="${result.snippet.thumbnails.default.url}">
+      		</p> 
+      		</a>
+      	</h2>     
+    </div>
+    `;
 	console.log('renderResults ran');
+	//console.log(result);
 }
 
 function displayYoutubeSearchData(data) {
-	const results = data.items.map((item, index) => renderResults(item));
-	//$('.js-search-results').html(results);
-	console.log(renderResults);
+	const results = data.items.map((item, index) => //THE PROBLEM!!!!
+	renderResults(item)
+	);
+	
+	$('.js-search-results').html(results)
+
+	console.log(data);
 } 
 
 function listenForSubmit() {
