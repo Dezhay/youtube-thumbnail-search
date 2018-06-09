@@ -16,27 +16,10 @@ function getApiData(searchTerm, callback) {
 		$.ajax(settings);
 		console.log('getApiData ran');
 
-	//console.log(settings.data);
-
-	/*jsonVar = $.ajax();
-	document.write(jsonVar);*/
 }
 
 
-
-
 function renderResults(result) {
-	/*let resultsFromApi = `
-	<div>
-      <h2>
-      <p>Okay, Here's what we got: 
-      	<span class="js-search-data">${result.title}</span>
-      </p>      
-    </div>
-	`;
-	$('.js-search-results').html(resultsFromApi);*/
-
-
 	return `
 	<div>
       	<h2>
